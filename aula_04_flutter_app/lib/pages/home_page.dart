@@ -1,3 +1,4 @@
+import 'package:aula_04_flutter_app/pages/configuracoes_page.dart';
 import 'package:aula_04_flutter_app/pages/favoritas_page.dart';
 import 'package:aula_04_flutter_app/pages/moedas_pages.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +35,7 @@ class _HomePageState extends State<HomePage> {
         children: const [
           MoedasPage(),
           FavoritasPage(),
+          ConfiguracoesPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -41,6 +43,7 @@ class _HomePageState extends State<HomePage> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Todas'),
           BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Favoritas'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Conta'),
         ],
         onTap: (pagina) {
           pc.animateToPage(
