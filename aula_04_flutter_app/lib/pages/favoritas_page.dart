@@ -40,4 +40,4 @@ class _FavoritasPageState extends State<FavoritasPage> {
       ),
     );
   }
-}
+} 
