@@ -141,10 +141,10 @@ class _CarteiraPageState extends State<CarteiraPage> {
                     centerSpaceRadius: 110,
                     sections: loadCarteira(),
                     pieTouchData: PieTouchData(
-                      touchCallback: (touch) => setState(() {
-                        index = touch.touchedSection!.touchedSectionIndex;
-                        setGraficoDados(index);
-                      }),
+                      // touchCallback: (touch) => setState(() {
+                      //   index = touch.touchedSection!.touchedSectionIndex;
+                      //   setGraficoDados(index);
+                      // }),
                     ),
                   ),
                 ),

@@ -1,5 +1,6 @@
 import 'package:aula_04_flutter_app/configs/app_settings.dart';
 import 'package:aula_04_flutter_app/repositories/conta_repository.dart';
+import 'package:aula_04_flutter_app/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
@@ -44,6 +45,27 @@ class _ConfiguracoesPageState extends State<ConfiguracoesPage> {
               ),
             ),
             const Divider(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24),
+              child: OutlinedButton(
+                onPressed: () => context.read<AuthService>().logout(),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: Colors.red,
+                ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Text(
+                        'Sair do App',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
