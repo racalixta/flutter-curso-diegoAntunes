@@ -28,6 +28,30 @@ class MoedaRepository extends ChangeNotifier {
         Timer.periodic(const Duration(minutes: 5), (_) => checkPrecos());
   }
 
+  getHistoricoMoeda(Moeda moeda) async {
+    final response = await http.get(
+      Uri.parse(
+        'https://api.coinbase.com/v2/assets/prices/${moeda.baseId}?base=BRL',
+      ),
+    );
+
+    List<Map<String, dynamic>> precos = [];
+
+    if (response.statusCode == 200) {
+      final json = jsonDecode(response.body);
+      final Map<String, dynamic> moeda = json['data']['prices'];
+
+      precos.add(moeda['hour']);
+      precos.add(moeda['day']);
+      precos.add(moeda['week']);
+      precos.add(moeda['month']);
+      precos.add(moeda['year']);
+      precos.add(moeda['all']);
+    }
+
+    return precos;
+  }
+
   checkPrecos() async {
     String uri = 'https://api.coinbase.com/v2/assets/search?base=BRL';
     final response = await http.get(Uri.parse(uri));
